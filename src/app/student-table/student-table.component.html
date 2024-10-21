@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <h1>Student Table</h1>
+
+    <table class="table">
+        <thead>
+            <h1 *ngIf="!isResultLoaded">Loading...</h1>
+
+            <tr>
+                <th>Id</th>
+                <th>Student Name</th>
+                <th>Course</th>
+                <th>Fee</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let student of StudentArray">
+                <td>{{student.id}}</td>
+                <td>{{student.stname}}</td>
+                <td>{{student.course}}</td>
+                <td>{{student.fee}}</td>
+                <td>
+                    <button class="btn btn-secondary" (click)="setUpdate(student)">Edit</button>&nbsp;
+                    <button class="btn btn-danger" (click)="onDelete(student.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <button class="btn btn-warning" [routerLink]="['/']">Add</button>
+</div>
